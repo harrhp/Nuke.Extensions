@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nuke-build/nuke/master/source/Nuke.CodeGeneration/schema.json",
+  "references": [
+    "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall"
+  ],
+  "name": "Dhall",
+  "officialUrl": "https://dhall-lang.org/",
+  "help": "Dhall is a programmable configuration language that you can think of as: JSON + functions + types + imports",
+  "pathExecutable": "dhall",
+  "tasks": [
+    {
+      "help": "Render a Dhall expression that evaluates to a Text literal",
+      "postfix": "Text",
+      "definiteArgument": "text",
+      "settingsClass": {
+        "properties": [
+          {
+            "name": "File",
+            "type": "string",
+            "format": "--file {value}",
+            "help": "Read expression from a file instead of standard input"
+          },
+          {
+            "name": "Output",
+            "type": "string",
+            "format": "--output {value}",
+            "help": "Write result to a file instead of standard output"
+          }
+        ]
+      }
+    },
+    {
+      "help": "Display version",
+      "postfix": "Version",
+      "definiteArgument": "version",
+      "settingsClass": {}
+    }
+  ]
+}
