@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nuke-build/nuke/master/source/Nuke.CodeGeneration/schema.json",
+  "references": [
+    "https://docs.liquibase.com/commands/home.html"
+  ],
+  "name": "Liquibase",
+  "officialUrl": "https://www.liquibase.org/",
+  "help": "Liquibase is an open-source database-independent library for tracking, managing and applying database schema changes",
+  "pathExecutable": "liquibase",
+  "tasks": [
+    {
+      "settingsClass": {
+        "baseClass": "LiquibaseSettingsBase",
+        "properties": [
+          {
+            "name": "Version",
+            "type": "bool",
+            "format": "--version",
+            "help": "Print version information and exit"
+          }
+        ]
+      }
+    },
+    {
+      "help": "Deploy any changes in the changelog file that have not been deployed",
+      "postfix": "Update",
+      "definiteArgument": "update",
+      "settingsClass": {
+        "baseClass": "LiquibaseSettingsBase",
+        "properties": [
+          {
+            "name": "Password",
+            "type": "string",
+            "format": "--password={value}",
+            "secret": true,
+            "help": "Password to use to connect to the database"
+          }
+        ]
+      }
+    }
+  ],
+  "commonTaskProperties": [
+    {
+      "name": "LiquibaseGlobalSettings",
+      "type": "LiquibaseGlobalSettings",
+      "format": "{value}",
+      "customImpl": true,
+      "customValue": true
+    }
+  ],
+  "dataClasses": [
+    {
+      "name": "LiquibaseGlobalSettings",
+      "extensionMethods": true,
+      "properties": [
+        {
+          "name": "DefaultsFile",
+          "type": "string",
+          "format": "--defaults-file={value}",
+          "help": "File with default Liquibase properties"
+        }
+      ]
+    }
+  ]
+}

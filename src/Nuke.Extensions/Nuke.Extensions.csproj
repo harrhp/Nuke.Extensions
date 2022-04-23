@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <PackageId>Nuke.Extensions</PackageId>
+        <Version>1.0.0-beta.1</Version>
+        <Title>Nuke Extensions</Title>
+        <PackageTags>nuke</PackageTags>
+        <Description>Provides additional tools that didn't make it into main NUKE package</Description>
+        <Authors>prfbszbq</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/harrhp/Nuke.Extensions</RepositoryUrl>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RootNamespace>Harrhp.Nuke.Extensions</RootNamespace>
+        <NukeBaseDirectory>$(MSBuildProjectDirectory)/Tools</NukeBaseDirectory>
+        <NukeUseNestedNamespaces>true</NukeUseNestedNamespaces>
+        <NukeBaseNamespace>$(RootNamespace).Tools</NukeBaseNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <NukeSpecificationFiles Include="$(NukeBaseDirectory)/**/*.json" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Nuke.Common" Version="$(NukeCommonVersion)" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="$(SolutionDir)/README.md" Pack="true" PackagePath="./"/>
+    </ItemGroup>
+</Project>
