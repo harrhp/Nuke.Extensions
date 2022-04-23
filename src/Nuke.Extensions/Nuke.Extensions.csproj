@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageId>Nuke.Extensions</PackageId>
+        <PackageId>Harrhp.Nuke.Extensions</PackageId>
         <Version>1.0.0</Version>
         <Title>Nuke Extensions</Title>
         <PackageTags>nuke</PackageTags>
